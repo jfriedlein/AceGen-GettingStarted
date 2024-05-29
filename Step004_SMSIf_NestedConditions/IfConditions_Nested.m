@@ -1,79 +1,95 @@
 %**************************************************************
 %* AceGen    7.505 Linux (16 Aug 22)                          *
-%*           Co. J. Korelc  2020           24 Apr 24 18:11:34 *
+%*           Co. J. Korelc  2020           29 May 24 16:47:19 *
 %**************************************************************
 % User     : Full professional version
 % Notebook : AceGen-SMSIf_Nested
 % Evaluation time                 : 1 s     Mode  : Optimal
-% Number of formulae              : 40      Method: Automatic
-% Subroutine                      : IfConditions_Nested size: 220
-% Total size of Mathematica  code : 220 subexpressions
-% Total size of Matlab code      : 1032 bytes 
+% Number of formulae              : 47      Method: Automatic
+% Subroutine                      : IfConditions_Nested size: 287
+% Total size of Mathematica  code : 287 subexpressions
+% Total size of Matlab code      : 1297 bytes 
 
 %*********************** F U N C T I O N **************************
-function[y1Output,Dy1DxOutput,y2Output,Dy2DxOutput,y3Output,Dy3DxOutput]=IfConditions_Nested(xInput);
+function[y1Output,Dy1DxOutput,y2Output,Dy2DxOutput,y3Output,Dy3DxOutput,y4Output,Dy4DxOutput]=IfConditions_Nested(xInput);
 persistent v;
-if size(v)<175
-  v=zeros(175,'double');
+if size(v)<189
+  v=zeros(189,'double');
 end;
 v(1)=xInput;
-v(23)=cos(v(1));
-v(5)=sin(v(1));
-b3=v(1)>=0;
-if(b3)
- v(26)=-(1/Power(v(1),2))+2e0*v(1)+v(23);
- v(11)=25e0+1/v(1)+(v(1)*v(1))+v(5);
- v(27)=v(26);
- v(6)=v(11);
+b5=v(1)<-10e0;
+b2=v(1)>=0;
+if(b2)
+ v(27)=-(1/Power(v(1),2))+2e0*v(1)+cos(v(1));
+ v(9)=25e0+1/v(1)+(v(1)*v(1))+sin(v(1));
+ v(28)=v(27);
+ v(4)=v(9);
 else;
- b7=v(1)<-10e0;
- if(b7)
-  v(39)=sqrt(v(1));
-  v(28)=-9e0+v(23)+1/(2e0*v(39));
-  v(14)=-9e0*v(1)+v(39)+v(5);
-  v(29)=v(28);
-  v(9)=v(14);
+ if(b5)
+  v(42)=sqrt(-v(1));
+  v(29)=-9e0-1/(2e0*v(42))+cos(v(1));
+  v(12)=-9e0*v(1)+v(42)+sin(v(1));
+  v(30)=v(29);
+  v(7)=v(12);
  else;
-  v(30)=2e0*v(1);
-  v(15)=(v(1)*v(1));
-  v(29)=v(30);
-  v(9)=v(15);
+  v(31)=2e0*v(1);
+  v(13)=(v(1)*v(1));
+  v(30)=v(31);
+  v(7)=v(13);
  end;
- v(27)=v(29);
- v(6)=v(9);
+ v(28)=v(30);
+ v(4)=v(7);
 end;
-if(b3)
- v(34)=v(26);
- v(12)=v(11);
+if(b2)
+ v(34)=v(27);
+ v(10)=v(9);
 else;
- if(b7)
-  v(34)=v(28);
-  v(12)=v(14);
+ if(b5)
+  v(34)=v(29);
+  v(10)=v(12);
  else;
-  v(34)=v(30);
-  v(12)=v(15);
+  v(34)=v(31);
+  v(10)=v(13);
  end;
 end;
 v(37)=0;
-v(16)=0;
-if(b3)
- v(37)=v(26);
- v(16)=v(11);
+v(14)=0;
+if(b2)
+ v(37)=v(27);
+ v(14)=v(9);
 else;
- if(b7)
-  v(37)=v(28);
-  v(16)=v(14);
+ if(b5)
+  v(37)=v(29);
+  v(14)=v(12);
  else;
-  v(37)=v(30);
-  v(16)=v(15);
+  v(37)=v(31);
+  v(14)=v(13);
  end;
 end;
-y1Output=v(6);
-Dy1DxOutput=v(27);
-y2Output=v(12);
+if(b2)
+ v(40)=v(27);
+ v(22)=v(9);
+else;
+end;
+if(b5)
+ v(43)=sqrt(-v(1));
+ v(40)=-9e0-1/(2e0*v(43))+cos(v(1));
+ v(22)=-9e0*v(1)+v(43)+sin(v(1));
+else;
+end;
+if(v(1)<0 && v(1)>=-10e0)
+ v(40)=2e0*v(1);
+ v(22)=(v(1)*v(1));
+else;
+end;
+y1Output=v(4);
+Dy1DxOutput=v(28);
+y2Output=v(10);
 Dy2DxOutput=v(34);
-y3Output=v(16);
+y3Output=v(14);
 Dy3DxOutput=v(37);
+y4Output=v(22);
+Dy4DxOutput=v(40);
 
 
 function [x]=SMSKDelta(i,j)
