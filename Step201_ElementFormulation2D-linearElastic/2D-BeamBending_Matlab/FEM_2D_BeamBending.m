@@ -42,7 +42,7 @@ function FEM_2D_BeamBending
 %
 clear,clc;
 
-%% Include AceGen generated routines for element types "Q1" and "Q1ST" (see usage in function "globalstiffness")
+%% Include AceGen generated routines for element types "Q1X" and "Q1ST" (see usage in function "globalstiffness")
 % Include the "Q1X_2D_linElastic.m" file for the "Q1X_2D_linElastic" function
 addpath('../')
 
@@ -63,7 +63,7 @@ fclose(infile);
 
 %% USER-Input
 % Select the element-type
-element_type = "standard_Bower"; % standard_Bower, incompModes_Bower, Q1, (Q1ST)
+element_type = "standard_Bower"; % standard_Bower, incompModes_Bower, Q1X, (Q1ST)
 
 %%
 % Plot the initial mesh as a check
@@ -131,7 +131,7 @@ plotmesh(coords,ncoord,nnode,connect,nelem,elident,nelnodes,'g');
  %
  % Plot the exact solution and FEA solution together
  %
- figure("Name","exact solution (black) vs FE (red)")
+ figure("Name","exact solution (blue) vs FE (red)")
  plotmesh(defcoords,ncoord,nnode,connect,nelem,elident,nelnodes,'r');  
  a = 0.15;
  b = 1;
@@ -152,7 +152,7 @@ plotmesh(coords,ncoord,nnode,connect,nelem,elident,nelnodes,'g');
    defcoords(2,i) = coords(2,i) + scale*ups2; 
  end
  
- plotmesh(defcoords,ncoord,nnode,connect,nelem,elident,nelnodes,'k');  
+ plotmesh(defcoords,ncoord,nnode,connect,nelem,elident,nelnodes,'b');  
  
 
  align_figure();
@@ -196,7 +196,7 @@ function Stif = globalstiffness(ncoord,ndof,nnode,coords,nelem,maxnodes,elident,
             kel = elstif_standard(ncoord,ndof,n,ident,lmncoord,materialprops,lmndof);
         case "incompModes_Bower"
             kel = elstif_incompModes(ncoord,ndof,n,ident,lmncoord,materialprops,lmndof);
-        case "Q1"
+        case "Q1X"
             NQP = 1; HG_active = 1;
 %             NQP = 4; HG_active = 0;
 
