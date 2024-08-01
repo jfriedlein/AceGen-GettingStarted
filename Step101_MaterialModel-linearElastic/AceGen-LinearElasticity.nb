@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     58169,       1226]
-NotebookOptionsPosition[     56393,       1189]
-NotebookOutlinePosition[     57239,       1213]
-CellTagsIndexPosition[     57196,       1210]
+NotebookDataLength[     58884,       1239]
+NotebookOptionsPosition[     57108,       1202]
+NotebookOutlinePosition[     57954,       1226]
+CellTagsIndexPosition[     57911,       1223]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -101,7 +101,7 @@ Cell[BoxData[
 
 Cell[BoxData[
  TemplateBox[{
-   RowBox[{"\"Mon 29 Apr 2024 13:50:32\"", 
+   RowBox[{"\"Thu 1 Aug 2024 15:58:07\"", 
      StyleBox[
       RowBox[{"\"GMT+\"", "\[InvisibleSpace]", 
         StyleBox["2", NumberMarks -> False, StripOnInput -> False]}], 
@@ -110,8 +110,8 @@ Cell[BoxData[
      RowBox[{
        RowBox[{"{", 
          RowBox[{
-          "2024", ",", "4", ",", "29", ",", "13", ",", "50", ",", 
-           "32.465144`8.2639923139695"}], "}"}], ",", "\"Instant\"", ",", 
+          "2024", ",", "8", ",", "1", ",", "15", ",", "58", ",", 
+           "7.248292`7.6128106679782555"}], "}"}], ",", "\"Instant\"", ",", 
        "\"Gregorian\"", ",", "2.`"}], "]"}]},
   "DateObject",
   Editable->False]], "Output",
@@ -129,8 +129,9 @@ Cell[BoxData[
    3.901350072307234*^9, 3.901350191702013*^9, 3.901350447726245*^9, {
    3.901350548813367*^9, 3.901350566671557*^9}, 3.923378087927539*^9, 
    3.923378178909971*^9, {3.923378238978372*^9, 3.923378261298585*^9}, {
-   3.923380207544011*^9, 3.923380232466951*^9}},
- CellLabel->"Out[74]=",ExpressionUUID->"a1e26a1a-9e51-4048-a467-839018b90a3a"]
+   3.923380207544011*^9, 3.923380232466951*^9}, {3.927962522870583*^9, 
+   3.927962548233466*^9}, {3.931509455040964*^9, 3.931509487253173*^9}},
+ CellLabel->"Out[74]=",ExpressionUUID->"f01b16a9-56fa-4302-807f-a6cfca576817"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -221,7 +222,7 @@ Cell[BoxData[
      RowBox[{"NAME", ",", 
       RowBox[{"\"\<Language\>\"", "\[Rule]", " ", "\"\<Matlab\>\""}], ",", 
       RowBox[{"\"\<Mode\>\"", "\[Rule]", " ", "\"\<Optimal\>\""}]}], "]"}], 
-    ";"}], " ", "\n", 
+    ";"}], " ", "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
     RowBox[{
      RowBox[{"Start", " ", "a", " ", "module"}], ",", " ", 
@@ -231,7 +232,7 @@ Cell[BoxData[
      RowBox[{
      "with", " ", "name", " ", "\"\<NAME\>\"", " ", "and", " ", "the", " ", 
       "specified", " ", "input", " ", "and", " ", "output", " ", 
-      "arguments"}]}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+      "arguments"}]}], " ", "*)"}], " ", "\n", 
    RowBox[{
     RowBox[{"SMSModule", "[", 
      RowBox[{"NAME", ",", 
@@ -251,12 +252,13 @@ Cell[BoxData[
       RowBox[{"\"\<Output\>\"", " ", "\[Rule]", " ", 
        RowBox[{"{", " ", 
         RowBox[{"CauchyStressVEC$$", ",", "Tangent$$"}], " ", "}"}]}]}], 
-     "\[IndentingNewLine]", "\t       ", "]"}], ";"}], "\n", 
+     "\[IndentingNewLine]", "\t       ", "]"}], ";"}], "\[IndentingNewLine]", 
+   
    RowBox[{"(*", " ", 
     RowBox[{
     "Input", " ", "declaration", " ", "by", " ", "copying", " ", "AceGen", 
      " ", "variables", " ", "to", " ", "Mathematica", " ", "variables"}], " ",
-     "*)"}], "\[IndentingNewLine]", 
+     "*)"}], "\n", 
    RowBox[{
     RowBox[{"deformationGradient", " ", "\[DoubleRightTee]", " ", 
      RowBox[{"SMSReal", "[", " ", 
@@ -358,7 +360,9 @@ Cell[BoxData[
    3.9013501818145*^9}, 3.901350345447022*^9, {3.901350445198984*^9, 
    3.901350452830573*^9}, {3.923377808165004*^9, 3.923377860699753*^9}, {
    3.923377895608609*^9, 3.923377935188196*^9}, {3.9233782351685534`*^9, 
-   3.92337825950814*^9}, {3.9233802145784483`*^9, 3.923380230225877*^9}},
+   3.92337825950814*^9}, {3.9233802145784483`*^9, 3.923380230225877*^9}, {
+   3.927962545397276*^9, 3.927962565917097*^9}, {3.931509467826829*^9, 
+   3.9315094852156*^9}},
  CellLabel->"In[75]:=",ExpressionUUID->"8844cf92-f4b2-4d5e-bb00-3725bcd312d2"],
 
 Cell[BoxData[
@@ -441,8 +445,10 @@ Cell[BoxData[
          RowBox[{"IdentityMatrix", "[", "3", "]"}], "+", 
          RowBox[{"Transpose", "[", 
           RowBox[{"deformationGradient", "-", 
-           RowBox[{"IdentityMatrix", "[", "3", "]"}]}], "]"}]}], " ", 
-        ")"}]}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+           RowBox[{"IdentityMatrix", "[", "3", "]"}]}], "]"}]}], " ", ")"}]}],
+       ",", 
+      RowBox[{"\"\<Symmetric\>\"", "\[Rule]", "True"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
     RowBox[{
     "Compute", " ", "the", " ", "stress", " ", "tensor", " ", "for", " ", 
@@ -543,7 +549,8 @@ Cell[BoxData[
    3.9013469931696777`*^9}, {3.901347453249877*^9, 3.901347509521903*^9}, {
    3.9013475404739513`*^9, 3.9013476078667917`*^9}, {3.9013487896367188`*^9, 
    3.901348797492824*^9}, {3.9073933845600567`*^9, 3.9073934047036133`*^9}, {
-   3.923377974163595*^9, 3.923377990803794*^9}},
+   3.923377974163595*^9, 3.923377990803794*^9}, {3.927962510084985*^9, 
+   3.927962513652631*^9}},
  CellLabel->"In[83]:=",ExpressionUUID->"e1f98168-1337-432d-a8b3-879858eed708"],
 
 Cell[BoxData[
@@ -592,8 +599,9 @@ Cell[BoxData[
    RowBox[{
     RowBox[{"Dstress\[LetterSpace]DglStrain", "\[DoubleRightTee]", " ", 
      RowBox[{"SMSD", "[", 
-      RowBox[{"stress", ",", "glStrain\[LetterSpace]H"}], "]"}]}], ";"}], " ",
-    "\[IndentingNewLine]", 
+      RowBox[{"stress", ",", "glStrain\[LetterSpace]H", ",", 
+       RowBox[{"\"\<Symmetric\>\"", "\[Rule]", "True"}]}], "]"}]}], ";"}], 
+   " ", "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
     RowBox[{
      RowBox[{
@@ -685,7 +693,7 @@ Cell[BoxData[
    3.901347617034256*^9, 3.901347692841096*^9}, {3.901347728905286*^9, 
    3.9013478205697823`*^9}, 3.901348257810156*^9, {3.9013489212228403`*^9, 
    3.901348921421249*^9}, {3.901348954900366*^9, 3.9013489567459583`*^9}, {
-   3.923378031714346*^9, 3.9233780447717257`*^9}},
+   3.923378031714346*^9, 3.9233780447717257`*^9}, 3.927962520793907*^9},
  CellLabel->"In[87]:=",ExpressionUUID->"8ce01ad9-8da3-4fc0-94cd-e61692f2b9db"],
 
 Cell[BoxData[
@@ -922,7 +930,7 @@ Cell[BoxData[
 
 Cell[BoxData[
  TemplateBox[{
-   RowBox[{"\"Mon 29 Apr 2024 13:50:33\"", 
+   RowBox[{"\"Thu 1 Aug 2024 15:58:07\"", 
      StyleBox[
       RowBox[{"\"GMT+\"", "\[InvisibleSpace]", 
         StyleBox["2", NumberMarks -> False, StripOnInput -> False]}], 
@@ -931,15 +939,17 @@ Cell[BoxData[
      RowBox[{
        RowBox[{"{", 
          RowBox[{
-          "2024", ",", "4", ",", "29", ",", "13", ",", "50", ",", 
-           "33.531471`8."}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
-       ",", "2.`"}], "]"}]},
+          "2024", ",", "8", ",", "1", ",", "15", ",", "58", ",", 
+           "7.866969`7.648382426074259"}], "}"}], ",", "\"Instant\"", ",", 
+       "\"Gregorian\"", ",", "2.`"}], "]"}]},
   "DateObject",
   Editable->False]], "Output",
  CellChangeTimes->{{3.901350550817155*^9, 3.901350567670209*^9}, 
    3.923378091919338*^9, 3.9233781797186193`*^9, {3.9233782399427643`*^9, 
-   3.923378262110263*^9}, {3.9233802109569902`*^9, 3.923380233533692*^9}},
- CellLabel->"Out[94]=",ExpressionUUID->"786bd171-59d1-406f-b025-d37f26b8b43f"],
+   3.923378262110263*^9}, {3.9233802109569902`*^9, 3.923380233533692*^9}, {
+   3.927962528268931*^9, 3.927962549230424*^9}, {3.931509464208342*^9, 
+   3.9315094878688993`*^9}},
+ CellLabel->"Out[94]=",ExpressionUUID->"27cc2f44-ebec-47b4-a57d-40a63d5c463c"],
 
 Cell[CellGroupData[{
 
@@ -950,7 +960,7 @@ Cell[BoxData[
        StyleBox["\"File: \"", Bold, 
         RGBColor[0, 0, 1], StripOnInput -> False], "\"LinearElasticity.m\"", 
        StyleBox["\"  Size: \"", Bold, 
-        RGBColor[0, 0, 1], StripOnInput -> False], "3798", 
+        RGBColor[0, 0, 1], StripOnInput -> False], "3802", 
        StyleBox["\"  Time: \"", Bold, 
         RGBColor[0, 0, 1], StripOnInput -> False], "1"},
       "RowDefault"]},
@@ -989,7 +999,7 @@ Cell[BoxData[
           BackFaceColor->RGBColor[0, 0, 1],
           GraphicsColor->RGBColor[0, 0, 1],
           FontWeight->Bold,
-          FontColor->RGBColor[0, 0, 1]], "1020"}
+          FontColor->RGBColor[0, 0, 1]], "1026"}
        },
        AutoDelete->False,
        GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Center}}},
@@ -1010,67 +1020,69 @@ Cell[BoxData[
    3.901349980722171*^9, 3.901350074169077*^9, 3.9013501937421303`*^9, 
    3.9013504496638947`*^9, {3.90135055077702*^9, 3.901350568724139*^9}, 
    3.923378093166297*^9, 3.923378180565996*^9, {3.923378240966646*^9, 
-   3.923378263027575*^9}, {3.923380211948456*^9, 3.9233802347880783`*^9}},
+   3.923378263027575*^9}, {3.923380211948456*^9, 3.9233802347880783`*^9}, {
+   3.9279625292464*^9, 3.927962550141858*^9}, {3.9315094653126717`*^9, 
+   3.931509488884255*^9}},
  CellLabel->
   "During evaluation of \
-In[94]:=",ExpressionUUID->"a496d5f2-afce-4073-8d8a-cb90c4baeb45"],
+In[94]:=",ExpressionUUID->"b02ad887-7be9-42ab-abc7-50609a936a46"],
 
 Cell["\<\
 %**************************************************************
 %* AceGen    7.505 Linux (16 Aug 22)                          *
-%*           Co. J. Korelc  2020           29 Apr 24 13:50:34 *
+%*           Co. J. Korelc  2020           1 Aug 24 15:58:08  *
 %**************************************************************
 % User     : Full professional version
 % Notebook : AceGen-LinearElasticity
 % Evaluation time                 : 1 s     Mode  : Optimal
 % Number of formulae              : 21      Method: Automatic
-% Subroutine                      : LinearElasticity size: 1020
-% Total size of Mathematica  code : 1020 subexpressions
-% Total size of Matlab code      : 2885 bytes 
+% Subroutine                      : LinearElasticity size: 1026
+% Total size of Mathematica  code : 1026 subexpressions
+% Total size of Matlab code      : 2889 bytes 
 
 %*********************** F U N C T I O N **************************
 function[CauchyStressVEC,Tangent]=LinearElasticity(deformationGradient,\
 listOfMaterialParameters);
 persistent v;
-if size(v)<152
-  v=zeros(152,'double');
+if size(v)<144
+  v=zeros(144,'double');
 end;
 v(10)=listOfMaterialParameters(1);
 v(11)=listOfMaterialParameters(2);
-v(39)=2e0*v(11);
-v(38)=v(10)+(-2e0/3e0)*v(11);
-v(37)=v(10)+(4e0/3e0)*v(11);
+v(34)=2e0*v(11);
+v(29)=v(10)+(-2e0/3e0)*v(11);
+v(28)=v(10)+(4e0/3e0)*v(11);
 v(12)=-1e0+deformationGradient(1,1);
-v(17)=-1e0+deformationGradient(2,2);
-v(23)=-1e0+deformationGradient(3,3);
-v(24)=v(12)+v(17)+v(23);
-v(30)=v(10)*v(24);
-v(29)=(-1e0/3e0)*v(24);
-v(25)=v(30)+(v(12)+v(29))*v(39);
-v(26)=(deformationGradient(1,2)+deformationGradient(2,1))*v(11);
-v(31)=v(30)+(v(17)+v(29))*v(39);
-v(32)=(deformationGradient(2,3)+deformationGradient(3,2))*v(11);
-v(33)=(deformationGradient(1,3)+deformationGradient(3,1))*v(11);
-v(35)=v(30)+(v(23)+v(29))*v(39);
-CauchyStressVEC(1)=v(25);
-CauchyStressVEC(2)=v(31);
-CauchyStressVEC(3)=v(35);
-CauchyStressVEC(4)=v(26);
-CauchyStressVEC(5)=v(32);
-CauchyStressVEC(6)=v(33);
-Tangent(1,1,1,1)=v(37);
+v(15)=-1e0+deformationGradient(2,2);
+v(17)=-1e0+deformationGradient(3,3);
+v(18)=v(12)+v(15)+v(17);
+v(23)=v(10)*v(18);
+v(22)=(-1e0/3e0)*v(18);
+v(19)=v(23)+(v(12)+v(22))*v(34);
+v(20)=(deformationGradient(1,2)+deformationGradient(2,1))*v(11);
+v(21)=(deformationGradient(1,3)+deformationGradient(3,1))*v(11);
+v(24)=v(23)+(v(15)+v(22))*v(34);
+v(25)=(deformationGradient(2,3)+deformationGradient(3,2))*v(11);
+v(26)=v(23)+(v(17)+v(22))*v(34);
+CauchyStressVEC(1)=v(19);
+CauchyStressVEC(2)=v(24);
+CauchyStressVEC(3)=v(26);
+CauchyStressVEC(4)=v(20);
+CauchyStressVEC(5)=v(25);
+CauchyStressVEC(6)=v(21);
+Tangent(1,1,1,1)=v(28);
 Tangent(1,1,1,2)=0;
 Tangent(1,1,1,3)=0;
 Tangent(1,1,2,1)=0;
-Tangent(1,1,2,2)=v(38);
+Tangent(1,1,2,2)=v(29);
 Tangent(1,1,2,3)=0;
 Tangent(1,1,3,1)=0;
 Tangent(1,1,3,2)=0;
-Tangent(1,1,3,3)=v(38);
+Tangent(1,1,3,3)=v(29);
 Tangent(1,2,1,1)=0;
-Tangent(1,2,1,2)=v(39);
+Tangent(1,2,1,2)=v(11);
 Tangent(1,2,1,3)=0;
-Tangent(1,2,2,1)=0;
+Tangent(1,2,2,1)=v(11);
 Tangent(1,2,2,2)=0;
 Tangent(1,2,2,3)=0;
 Tangent(1,2,3,1)=0;
@@ -1078,47 +1090,47 @@ Tangent(1,2,3,2)=0;
 Tangent(1,2,3,3)=0;
 Tangent(1,3,1,1)=0;
 Tangent(1,3,1,2)=0;
-Tangent(1,3,1,3)=v(39);
+Tangent(1,3,1,3)=v(11);
 Tangent(1,3,2,1)=0;
 Tangent(1,3,2,2)=0;
 Tangent(1,3,2,3)=0;
-Tangent(1,3,3,1)=0;
+Tangent(1,3,3,1)=v(11);
 Tangent(1,3,3,2)=0;
 Tangent(1,3,3,3)=0;
 Tangent(2,1,1,1)=0;
-Tangent(2,1,1,2)=0;
+Tangent(2,1,1,2)=v(11);
 Tangent(2,1,1,3)=0;
-Tangent(2,1,2,1)=v(39);
+Tangent(2,1,2,1)=v(11);
 Tangent(2,1,2,2)=0;
 Tangent(2,1,2,3)=0;
 Tangent(2,1,3,1)=0;
 Tangent(2,1,3,2)=0;
 Tangent(2,1,3,3)=0;
-Tangent(2,2,1,1)=v(38);
+Tangent(2,2,1,1)=v(29);
 Tangent(2,2,1,2)=0;
 Tangent(2,2,1,3)=0;
 Tangent(2,2,2,1)=0;
-Tangent(2,2,2,2)=v(37);
+Tangent(2,2,2,2)=v(28);
 Tangent(2,2,2,3)=0;
 Tangent(2,2,3,1)=0;
 Tangent(2,2,3,2)=0;
-Tangent(2,2,3,3)=v(38);
+Tangent(2,2,3,3)=v(29);
 Tangent(2,3,1,1)=0;
 Tangent(2,3,1,2)=0;
 Tangent(2,3,1,3)=0;
 Tangent(2,3,2,1)=0;
 Tangent(2,3,2,2)=0;
-Tangent(2,3,2,3)=v(39);
+Tangent(2,3,2,3)=v(11);
 Tangent(2,3,3,1)=0;
-Tangent(2,3,3,2)=0;
+Tangent(2,3,3,2)=v(11);
 Tangent(2,3,3,3)=0;
 Tangent(3,1,1,1)=0;
 Tangent(3,1,1,2)=0;
-Tangent(3,1,1,3)=0;
+Tangent(3,1,1,3)=v(11);
 Tangent(3,1,2,1)=0;
 Tangent(3,1,2,2)=0;
 Tangent(3,1,2,3)=0;
-Tangent(3,1,3,1)=v(39);
+Tangent(3,1,3,1)=v(11);
 Tangent(3,1,3,2)=0;
 Tangent(3,1,3,3)=0;
 Tangent(3,2,1,1)=0;
@@ -1126,24 +1138,23 @@ Tangent(3,2,1,2)=0;
 Tangent(3,2,1,3)=0;
 Tangent(3,2,2,1)=0;
 Tangent(3,2,2,2)=0;
-Tangent(3,2,2,3)=0;
+Tangent(3,2,2,3)=v(11);
 Tangent(3,2,3,1)=0;
-Tangent(3,2,3,2)=v(39);
+Tangent(3,2,3,2)=v(11);
 Tangent(3,2,3,3)=0;
-Tangent(3,3,1,1)=v(38);
+Tangent(3,3,1,1)=v(29);
 Tangent(3,3,1,2)=0;
 Tangent(3,3,1,3)=0;
 Tangent(3,3,2,1)=0;
-Tangent(3,3,2,2)=v(38);
+Tangent(3,3,2,2)=v(29);
 Tangent(3,3,2,3)=0;
 Tangent(3,3,3,1)=0;
 Tangent(3,3,3,2)=0;
-Tangent(3,3,3,3)=v(37);
+Tangent(3,3,3,3)=v(28);
 disp(sprintf(\"\\n%s %f %f %f %f %f %f \",\"LinearElasticity<< \
-stressVEC=\",v(25),v(31),v(35),v(26),v(32 ...
- ),v(33)));
-disp(sprintf(\"\\n%s %f \",\"LinearElasticity<< error in \
-tangent=\",-12e0*v(11)+6e0*v(39)));
+stressVEC=\",v(19),v(24),v(26),v(20),v(25 ...
+ ),v(21)));
+disp(sprintf(\"\\n%s %f \",\"LinearElasticity<< error in tangent=\",0));
 
 
 function [x]=SMSKDelta(i,j)
@@ -1180,16 +1191,18 @@ end\
    3.901349980722171*^9, 3.901350074169077*^9, 3.9013501937421303`*^9, 
    3.9013504496638947`*^9, {3.90135055077702*^9, 3.901350568724139*^9}, 
    3.923378093166297*^9, 3.923378180565996*^9, {3.923378240966646*^9, 
-   3.923378263027575*^9}, {3.923380211948456*^9, 3.923380234797122*^9}},
+   3.923378263027575*^9}, {3.923380211948456*^9, 3.9233802347880783`*^9}, {
+   3.9279625292464*^9, 3.927962550141858*^9}, {3.9315094653126717`*^9, 
+   3.931509488920383*^9}},
  CellLabel->
   "During evaluation of \
-In[94]:=",ExpressionUUID->"a2d175f6-b8a1-40da-a99b-10436efc02b3"]
+In[94]:=",ExpressionUUID->"7aed7504-db3b-4e42-9298-46af56259032"]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1484.9032258064515`, 872.516129032258},
-WindowMargins->{{Automatic, -1485.6774193548388`}, {
-  22.695652173913004`, Automatic}},
+WindowSize->{1227.8709677419354`, 876.3870967741935},
+WindowMargins->{{
+  Automatic, -1408.258064516129}, {-21.130434782608745`, Automatic}},
 TaggingRules->Association["TryRealOnly" -> False],
 InputAutoReplacements->{
  "ld" -> "\[DoubleRightTee]", "ls" -> "\[RightTee]", "rd" -> 
@@ -1214,18 +1227,18 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 3814, 77, 227, "Input",ExpressionUUID->"f9299cf0-f2f0-4543-a424-0cdfff049f23"],
-Cell[4397, 101, 1651, 31, 38, "Output",ExpressionUUID->"a1e26a1a-9e51-4048-a467-839018b90a3a"]
+Cell[4397, 101, 1747, 32, 38, "Output",ExpressionUUID->"f01b16a9-56fa-4302-807f-a6cfca576817"]
 }, Open  ]],
-Cell[6063, 135, 12258, 226, 415, "Input",ExpressionUUID->"8844cf92-f4b2-4d5e-bb00-3725bcd312d2"],
-Cell[18324, 363, 10639, 183, 256, "Input",ExpressionUUID->"e1f98168-1337-432d-a8b3-879858eed708"],
-Cell[28966, 548, 7639, 140, 222, "Input",ExpressionUUID->"8ce01ad9-8da3-4fc0-94cd-e61692f2b9db"],
-Cell[36608, 690, 8449, 163, 163, "Input",ExpressionUUID->"26eb14d6-dd7e-47ca-9ea0-82a5a9038e1e"],
+Cell[6159, 136, 12360, 229, 454, "Input",ExpressionUUID->"8844cf92-f4b2-4d5e-bb00-3725bcd312d2"],
+Cell[18522, 367, 10753, 186, 275, "Input",ExpressionUUID->"e1f98168-1337-432d-a8b3-879858eed708"],
+Cell[29278, 555, 7724, 141, 241, "Input",ExpressionUUID->"8ce01ad9-8da3-4fc0-94cd-e61692f2b9db"],
+Cell[37005, 698, 8449, 163, 183, "Input",ExpressionUUID->"26eb14d6-dd7e-47ca-9ea0-82a5a9038e1e"],
 Cell[CellGroupData[{
-Cell[45082, 857, 3146, 63, 279, "Input",ExpressionUUID->"b95ec78e-fba0-4275-bf04-847ea02ccf1b"],
-Cell[48231, 922, 846, 19, 38, "Output",ExpressionUUID->"786bd171-59d1-406f-b025-d37f26b8b43f"],
+Cell[45479, 865, 3146, 63, 279, "Input",ExpressionUUID->"b95ec78e-fba0-4275-bf04-847ea02ccf1b"],
+Cell[48628, 930, 960, 21, 38, "Output",ExpressionUUID->"27cc2f44-ebec-47b4-a57d-40a63d5c463c"],
 Cell[CellGroupData[{
-Cell[49102, 945, 2862, 70, 74, "Print",ExpressionUUID->"a496d5f2-afce-4073-8d8a-cb90c4baeb45"],
-Cell[51967, 1017, 4398, 168, 2454, "Print",ExpressionUUID->"a2d175f6-b8a1-40da-a99b-10436efc02b3"]
+Cell[49613, 955, 2962, 72, 74, "Print",ExpressionUUID->"b02ad887-7be9-42ab-abc7-50609a936a46"],
+Cell[52578, 1029, 4502, 169, 2454, "Print",ExpressionUUID->"7aed7504-db3b-4e42-9298-46af56259032"]
 }, Open  ]]
 }, Open  ]]
 }
