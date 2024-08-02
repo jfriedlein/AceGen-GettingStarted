@@ -1,0 +1,428 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     18579,        420]
+NotebookOptionsPosition[     16062,        362]
+NotebookOutlinePosition[     16495,        378]
+CellTagsIndexPosition[     16452,        375]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["AceGen - Getting started - table of contents", "Title",
+ CellChangeTimes->{{3.931593808087262*^9, 3.931593820541731*^9}, 
+   3.93159403030179*^9, 
+   3.9315983057711163`*^9},ExpressionUUID->"eab7fce2-d015-4151-9a33-\
+cb76445933a6"],
+
+Cell[TextData[StyleBox["double-click the cells on the right to \
+\[OpenCurlyDoubleQuote]Open/Close Group\[CloseCurlyDoubleQuote] and see the \
+content of each step and a link to the notebook\nuse search function to e.g. \
+find steps working with \[OpenCurlyDoubleQuote]tensor\[CloseCurlyDoubleQuote] \
+or using the \[OpenCurlyDoubleQuote]deformation gradient\
+\[CloseCurlyDoubleQuote]", "Text"]], "Title",
+ CellChangeTimes->{{3.931593808087262*^9, 3.931593820541731*^9}, 
+   3.93159403030179*^9, {3.93159830702485*^9, 3.931598388584796*^9}, {
+   3.931598457516382*^9, 
+   3.93159854720111*^9}},ExpressionUUID->"e8d36770-cdb5-4d7b-b21d-\
+967e352536ee"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", " ", 
+   RowBox[{"NotebookDirectory", "[", "]"}], " ", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ShowStepLinkAndContent", "[", "]"}], ":=", 
+   RowBox[{"(", "\[IndentingNewLine]", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+     "Get", " ", "the", " ", "name", " ", "of", " ", "the", " ", "Step", " ", 
+      "folder", " ", "from", " ", "the", " ", "previous", " ", "section", " ",
+       "cell"}], " ", "*)"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"path", "=", 
+      RowBox[{"StringJoin", "[", 
+       RowBox[{
+        RowBox[{"NotebookRead", "[", 
+         RowBox[{"PreviousCell", "[", "]"}], "]"}], "[", 
+        RowBox[{"[", 
+         RowBox[{"1", ",", "1"}], "]"}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"path", " ", "=", " ", 
+      RowBox[{"StringReplace", "[", 
+       RowBox[{"path", ",", 
+        RowBox[{"\"\<\\\"\>\"", "->", "\"\<\>\""}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", " ", 
+      RowBox[{
+       RowBox[{
+       "Search", " ", "for", " ", "notebook", " ", "file", " ", "in", " ", 
+        StyleBox["path",
+         FontSlant->"Italic"]}], ",", " ", 
+       RowBox[{
+       "but", " ", "exclude", " ", "variants", " ", "that", " ", "start", " ",
+         "with", " ", "\"\<_\>\""}]}], " ", "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"path\[LetterSpace]file", "=", 
+      RowBox[{"First", "[", 
+       RowBox[{"Complement", "[", 
+        RowBox[{
+         RowBox[{"FileNames", "[", 
+          RowBox[{"\"\<*.nb\>\"", ",", "path"}], "]"}], ",", 
+         RowBox[{"FileNames", "[", 
+          RowBox[{"\"\<_*.nb\>\"", ",", "path"}], "]"}]}], "]"}], "]"}]}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"Hyperlink", "[", "path\[LetterSpace]file", "]"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"First", "[", 
+       RowBox[{
+        RowBox[{"NotebookImport", "[", 
+         RowBox[{"path\[LetterSpace]file", ",", 
+          RowBox[{"\"\<Abstract\>\"", "->", "\"\<Text\>\""}]}], "]"}], ",", 
+        "\"\<no content available\>\""}], "]"}], "]"}]}], 
+    "\[IndentingNewLine]", ")"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.931593808087262*^9, 3.931593820541731*^9}, {
+  3.93159403245465*^9, 3.931594034326599*^9}, {3.931595406822116*^9, 
+  3.931595446189767*^9}, {3.93159553421999*^9, 3.9315955377278833`*^9}, {
+  3.931595712594433*^9, 3.931595725214087*^9}, {3.9315966758904552`*^9, 
+  3.9315967226501637`*^9}, {3.931596753442789*^9, 3.931596780806964*^9}, {
+  3.931596957818285*^9, 3.931597039859667*^9}, {3.931597414756433*^9, 
+  3.931597444315823*^9}, {3.931597501094166*^9, 3.931597569371682*^9}, {
+  3.931598401510363*^9, 
+  3.9315984026593733`*^9}},ExpressionUUID->"168ee177-c2de-4434-b886-\
+5b8d20266308"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\"\<Step001_Basics\>\""], "Section",
+ CellChangeTimes->{{3.93159381247911*^9, 3.931593913806466*^9}, 
+   3.931594863144755*^9, {3.9315949733710957`*^9, 3.931594987750474*^9}, {
+   3.9315974029320383`*^9, 3.931597403428265*^9}, 
+   3.9315984130013657`*^9},ExpressionUUID->"39784cc7-f111-4a75-b8f9-\
+cf3a81cdad09"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ShowStepLinkAndContent", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.93159381247911*^9, 3.9315938304697323`*^9}, 
+   3.9315939282741537`*^9, {3.931593967522627*^9, 3.9315939767820177`*^9}, {
+   3.931594131104497*^9, 3.9315941847991056`*^9}, {3.931594395343143*^9, 
+   3.931594436127096*^9}, {3.93159481546911*^9, 3.9315948229685583`*^9}, {
+   3.931595455353382*^9, 3.931595462116838*^9}, 3.931596728315962*^9, 
+   3.931597432349319*^9},
+ CellLabel->
+  "In[121]:=",ExpressionUUID->"5fab7862-ac8c-4085-a757-fd3e34a3485a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TemplateBox[{
+  "\"Step001_Basics/AceGen-InCalcOut.nb\"", {
+   "Step001_Basics/AceGen-InCalcOut.nb", None}, 
+   "Step001_Basics/AceGen-InCalcOut.nb"},
+  "HyperlinkDefault"]], "Print",
+ CellChangeTimes->{
+  3.931596511835731*^9, 3.931596651809354*^9, {3.931596740192754*^9, 
+   3.931596782279764*^9}, {3.9315969935798473`*^9, 3.9315970076469812`*^9}, 
+   3.931597050376593*^9, 3.9315970905080557`*^9, {3.931597434055644*^9, 
+   3.931597445732716*^9}, 3.931597516742186*^9, 3.9315975886535273`*^9, {
+   3.931597796088416*^9, 3.931597813673362*^9}, 3.931597944167996*^9, 
+   3.9315980242562513`*^9, 3.93159805873844*^9, 3.93159824975723*^9},
+ CellLabel->
+  "During evaluation of \
+In[121]:=",ExpressionUUID->"6586926c-7cef-4dc5-a2c0-94b0e72eccce"],
+
+Cell[BoxData["\<\"content:\\n- basic usage of AceGen\\n- compute scalar \
+output y based on input x and derivative dy/dx\\n- scalars\\n- \
+input/output\\n- SMSInitialize\\n- SMSModule\\n- SMSReal\\n- SMSD\\n- \
+SMSExport\\n- SMSPrintMessage\\n- SMSWrite\"\>"], "Print",
+ CellChangeTimes->{
+  3.931596511835731*^9, 3.931596651809354*^9, {3.931596740192754*^9, 
+   3.931596782279764*^9}, {3.9315969935798473`*^9, 3.9315970076469812`*^9}, 
+   3.931597050376593*^9, 3.9315970905080557`*^9, {3.931597434055644*^9, 
+   3.931597445732716*^9}, 3.931597516742186*^9, 3.9315975886535273`*^9, {
+   3.931597796088416*^9, 3.931597813673362*^9}, 3.931597944167996*^9, 
+   3.9315980242562513`*^9, 3.93159805873844*^9, 3.9315982498009157`*^9},
+ CellLabel->
+  "During evaluation of \
+In[121]:=",ExpressionUUID->"e97b2549-cc0e-46c6-bb20-00e55e7e9713"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\"\<Step002_SetDelayed\>\""], "Section",
+ CellChangeTimes->{{3.93159381247911*^9, 3.931593913806466*^9}, 
+   3.931594863144755*^9, {3.9315949733710957`*^9, 3.931594987750474*^9}, 
+   3.9315955221837673`*^9, {3.9315958395287952`*^9, 3.931595841264697*^9}, {
+   3.9315974001403437`*^9, 
+   3.9315974005482492`*^9}},ExpressionUUID->"eb36fbb2-8aea-496f-8605-\
+dd6099c0aae8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ShowStepLinkAndContent", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.93159381247911*^9, 3.9315938304697323`*^9}, 
+   3.9315939282741537`*^9, {3.931593967522627*^9, 3.9315939767820177`*^9}, {
+   3.931594131104497*^9, 3.9315941847991056`*^9}, {3.931594395343143*^9, 
+   3.931594436127096*^9}, {3.93159481546911*^9, 3.9315948229685583`*^9}, {
+   3.931595455353382*^9, 3.931595462116838*^9}, {3.931595499390353*^9, 
+   3.931595515716611*^9}, 3.931596732811956*^9, 3.931597581619939*^9},
+ CellLabel->
+  "In[122]:=",ExpressionUUID->"4dad2d43-da5b-4c9e-855c-556e7f0f9b55"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TemplateBox[{
+  "\"Step002_SetDelayed/AceGen-SetDelayed.nb\"", {
+   "Step002_SetDelayed/AceGen-SetDelayed.nb", None}, 
+   "Step002_SetDelayed/AceGen-SetDelayed.nb"},
+  "HyperlinkDefault"]], "Print",
+ CellChangeTimes->{
+  3.931595465400642*^9, {3.931595517896654*^9, 3.93159553942047*^9}, {
+   3.931595717728341*^9, 3.931595727325708*^9}, 3.931595766481484*^9, 
+   3.9315965138671494`*^9, 3.931596654007073*^9, {3.931596740347714*^9, 
+   3.931596782363379*^9}, {3.931596993610798*^9, 3.931597007760148*^9}, 
+   3.93159705047845*^9, 3.931597090570322*^9, {3.9315974341382313`*^9, 
+   3.931597445799807*^9}, 3.9315975168802223`*^9, 3.931597588752178*^9, {
+   3.93159779618157*^9, 3.931597813981048*^9}, 3.9315979442278557`*^9, 
+   3.931598024388575*^9, 3.931598058788916*^9, 3.931598249830635*^9},
+ CellLabel->
+  "During evaluation of \
+In[122]:=",ExpressionUUID->"d296f67f-8877-4211-8cf8-9047de69a5bd"],
+
+Cell[BoxData["\<\"no content available\"\>"], "Print",
+ CellChangeTimes->{
+  3.931595465400642*^9, {3.931595517896654*^9, 3.93159553942047*^9}, {
+   3.931595717728341*^9, 3.931595727325708*^9}, 3.931595766481484*^9, 
+   3.9315965138671494`*^9, 3.931596654007073*^9, {3.931596740347714*^9, 
+   3.931596782363379*^9}, {3.931596993610798*^9, 3.931597007760148*^9}, 
+   3.93159705047845*^9, 3.931597090570322*^9, {3.9315974341382313`*^9, 
+   3.931597445799807*^9}, 3.9315975168802223`*^9, 3.931597588752178*^9, {
+   3.93159779618157*^9, 3.931597813981048*^9}, 3.9315979442278557`*^9, 
+   3.931598024388575*^9, 3.931598058788916*^9, 3.931598249844672*^9},
+ CellLabel->
+  "During evaluation of \
+In[122]:=",ExpressionUUID->"9399a6ed-76f6-4dc6-87e8-136dca923ff3"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\"\<Step020_SMSIf_Conditions\>\""], "Section",
+ CellChangeTimes->{{3.93159381247911*^9, 3.931593913806466*^9}, 
+   3.931594863144755*^9, {3.9315949733710957`*^9, 3.931594987750474*^9}, 
+   3.9315955221837673`*^9, {3.9315958395287952`*^9, 3.931595841264697*^9}, {
+   3.931596563657938*^9, 3.931596571281763*^9}, {3.9315973806828814`*^9, 
+   3.931597381250751*^9}},ExpressionUUID->"dcb24f78-de81-4964-b51d-\
+a368153fac1e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ShowStepLinkAndContent", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.93159381247911*^9, 3.9315938304697323`*^9}, 
+   3.9315939282741537`*^9, {3.931593967522627*^9, 3.9315939767820177`*^9}, {
+   3.931594131104497*^9, 3.9315941847991056`*^9}, {3.931594395343143*^9, 
+   3.931594436127096*^9}, {3.93159481546911*^9, 3.9315948229685583`*^9}, {
+   3.931595455353382*^9, 3.931595462116838*^9}, {3.931595499390353*^9, 
+   3.931595515716611*^9}, 3.9315965769177837`*^9, 3.9315967364045467`*^9, 
+   3.931597583780817*^9},
+ CellLabel->
+  "In[123]:=",ExpressionUUID->"c247a9ec-dcbc-4217-b122-ece959188d24"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TemplateBox[{
+  "\"Step020_SMSIf_Conditions/AceGen-SMSIf.nb\"", {
+   "Step020_SMSIf_Conditions/AceGen-SMSIf.nb", None}, 
+   "Step020_SMSIf_Conditions/AceGen-SMSIf.nb"},
+  "HyperlinkDefault"]], "Print",
+ CellChangeTimes->{
+  3.931595465400642*^9, {3.931595517896654*^9, 3.93159553942047*^9}, {
+   3.931595717728341*^9, 3.931595727325708*^9}, 3.931595766481484*^9, 
+   3.9315965138671494`*^9, 3.931596654027466*^9, {3.9315967404195757`*^9, 
+   3.931596782396785*^9}, {3.931596993645124*^9, 3.931597007792116*^9}, 
+   3.9315970505315533`*^9, 3.931597090595442*^9, {3.931597434198172*^9, 
+   3.93159744584394*^9}, 3.9315975169210653`*^9, 3.9315975888652067`*^9, {
+   3.931597796247696*^9, 3.931597814168721*^9}, 3.9315979443044558`*^9, 
+   3.9315980244650183`*^9, 3.931598058842136*^9, 3.93159824986963*^9},
+ CellLabel->
+  "During evaluation of \
+In[123]:=",ExpressionUUID->"cf22050e-c94a-43c3-96a5-8921d7afd6fa"],
+
+Cell[BoxData["\<\"content :\\n - basic usage of SMSIf for conditions\\n- \
+compute scalar output y based on input x and derivative dy/dx\\n- scalars\\n- \
+input/output\\n- SMSIf, SMSElse, SMSEndIf\\n- SMSInitialize\\n- SMSModule\\n- \
+SMSReal\\n- SMSD\\n- SMSExport\\n- SMSPrintMessage\\n- SMSWrite\"\>"], "Print",\
+
+ CellChangeTimes->{
+  3.931595465400642*^9, {3.931595517896654*^9, 3.93159553942047*^9}, {
+   3.931595717728341*^9, 3.931595727325708*^9}, 3.931595766481484*^9, 
+   3.9315965138671494`*^9, 3.931596654027466*^9, {3.9315967404195757`*^9, 
+   3.931596782396785*^9}, {3.931596993645124*^9, 3.931597007792116*^9}, 
+   3.9315970505315533`*^9, 3.931597090595442*^9, {3.931597434198172*^9, 
+   3.93159744584394*^9}, 3.9315975169210653`*^9, 3.9315975888652067`*^9, {
+   3.931597796247696*^9, 3.931597814168721*^9}, 3.9315979443044558`*^9, 
+   3.9315980244650183`*^9, 3.931598058842136*^9, 3.931598249897382*^9},
+ CellLabel->
+  "During evaluation of \
+In[123]:=",ExpressionUUID->"2e3f6e43-5055-4d20-ac98-b5a10325d809"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\"\<Step101_MaterialModel-linearElastic\>\""], "Section",
+ CellChangeTimes->{{3.93159381247911*^9, 3.931593913806466*^9}, 
+   3.931594863144755*^9, {3.9315949733710957`*^9, 3.931594987750474*^9}, 
+   3.9315955221837673`*^9, {3.9315958395287952`*^9, 3.931595841264697*^9}, {
+   3.931596563657938*^9, 3.931596571281763*^9}, {3.9315973806828814`*^9, 
+   3.931597381250751*^9}, 
+   3.931598056294539*^9},ExpressionUUID->"697c6a13-9807-41a4-8f07-\
+e4554efeec38"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ShowStepLinkAndContent", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.93159381247911*^9, 3.9315938304697323`*^9}, 
+   3.9315939282741537`*^9, {3.931593967522627*^9, 3.9315939767820177`*^9}, {
+   3.931594131104497*^9, 3.9315941847991056`*^9}, {3.931594395343143*^9, 
+   3.931594436127096*^9}, {3.93159481546911*^9, 3.9315948229685583`*^9}, {
+   3.931595455353382*^9, 3.931595462116838*^9}, {3.931595499390353*^9, 
+   3.931595515716611*^9}, 3.9315965769177837`*^9, 3.9315967364045467`*^9, 
+   3.931597583780817*^9},
+ CellLabel->
+  "In[124]:=",ExpressionUUID->"719410d5-9008-4593-b3d2-344e9da4816d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TemplateBox[{
+  "\"Step101_MaterialModel-linearElastic/AceGen-LinearElasticity.nb\"", {
+   "Step101_MaterialModel-linearElastic/AceGen-LinearElasticity.nb", None}, 
+   "Step101_MaterialModel-linearElastic/AceGen-LinearElasticity.nb"},
+  "HyperlinkDefault"]], "Print",
+ CellChangeTimes->{
+  3.931595465400642*^9, {3.931595517896654*^9, 3.93159553942047*^9}, {
+   3.931595717728341*^9, 3.931595727325708*^9}, 3.931595766481484*^9, 
+   3.9315965138671494`*^9, 3.931596654027466*^9, {3.9315967404195757`*^9, 
+   3.931596782396785*^9}, {3.931596993645124*^9, 3.931597007792116*^9}, 
+   3.9315970505315533`*^9, 3.931597090595442*^9, {3.931597434198172*^9, 
+   3.93159744584394*^9}, 3.9315975169210653`*^9, 3.9315975888652067`*^9, {
+   3.931597796247696*^9, 3.931597814168721*^9}, 3.9315979443044558`*^9, 
+   3.9315980244650183`*^9, 3.9315980588870993`*^9, 3.931598249918372*^9},
+ CellLabel->
+  "During evaluation of \
+In[124]:=",ExpressionUUID->"3ba12742-8508-4ec1-a16a-d019f65b645f"],
+
+Cell[BoxData["\<\"content:\\n- linear elastic material model\\n- input is \
+deformation gradient as 3x3 matrix\\n- output is stress as 6x1 vector and \
+stress-strain tangent\\n- tensor/vector\\n- input/output\\n- SMSFreeze\\n- \
+Symmetric\\n- SMSInitialize\\n- SMSModule\\n- SMSReal\\n- SMSD\\n- \
+SMSExport\\n- SMSPrintMessage\\n- SMSWrite\"\>"], "Print",
+ CellChangeTimes->{
+  3.931595465400642*^9, {3.931595517896654*^9, 3.93159553942047*^9}, {
+   3.931595717728341*^9, 3.931595727325708*^9}, 3.931595766481484*^9, 
+   3.9315965138671494`*^9, 3.931596654027466*^9, {3.9315967404195757`*^9, 
+   3.931596782396785*^9}, {3.931596993645124*^9, 3.931597007792116*^9}, 
+   3.9315970505315533`*^9, 3.931597090595442*^9, {3.931597434198172*^9, 
+   3.93159744584394*^9}, 3.9315975169210653`*^9, 3.9315975888652067`*^9, {
+   3.931597796247696*^9, 3.931597814168721*^9}, 3.9315979443044558`*^9, 
+   3.9315980244650183`*^9, 3.9315980588870993`*^9, 3.9315982499448*^9},
+ CellLabel->
+  "During evaluation of \
+In[124]:=",ExpressionUUID->"bf4c13fc-1290-41e8-8d61-d6400020a32f"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1486.4516129032256`, 886.4516129032257},
+WindowMargins->{{0, Automatic}, {Automatic, 21.1304347826087}},
+FrontEndVersion->"12.3 for Linux x86 (64-bit) (June 19, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"fcef223f-2a9c-4b37-aedf-4531e196d266"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 237, 4, 98, "Title",ExpressionUUID->"eab7fce2-d015-4151-9a33-cb76445933a6"],
+Cell[820, 28, 651, 10, 83, "Title",ExpressionUUID->"e8d36770-cdb5-4d7b-b21d-967e352536ee"],
+Cell[1474, 40, 2861, 66, 213, "Input",ExpressionUUID->"168ee177-c2de-4434-b886-5b8d20266308"],
+Cell[CellGroupData[{
+Cell[4360, 110, 326, 5, 66, "Section",ExpressionUUID->"39784cc7-f111-4a75-b8f9-cf3a81cdad09"],
+Cell[CellGroupData[{
+Cell[4711, 119, 543, 9, 29, "Input",ExpressionUUID->"5fab7862-ac8c-4085-a757-fd3e34a3485a"],
+Cell[CellGroupData[{
+Cell[5279, 132, 759, 15, 26, "Print",ExpressionUUID->"6586926c-7cef-4dc5-a2c0-94b0e72eccce"],
+Cell[6041, 149, 833, 13, 237, "Print",ExpressionUUID->"e97b2549-cc0e-46c6-bb20-00e55e7e9713"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[6935, 169, 384, 6, 52, "Section",ExpressionUUID->"eb36fbb2-8aea-496f-8605-dd6099c0aae8"],
+Cell[CellGroupData[{
+Cell[7344, 179, 589, 9, 29, "Input",ExpressionUUID->"4dad2d43-da5b-4c9e-855c-556e7f0f9b55"],
+Cell[CellGroupData[{
+Cell[7958, 192, 915, 17, 26, "Print",ExpressionUUID->"d296f67f-8877-4211-8cf8-9047de69a5bd"],
+Cell[8876, 211, 756, 12, 23, "Print",ExpressionUUID->"9399a6ed-76f6-4dc6-87e8-136dca923ff3"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[9693, 230, 434, 6, 52, "Section",ExpressionUUID->"dcb24f78-de81-4964-b51d-a368153fac1e"],
+Cell[CellGroupData[{
+Cell[10152, 240, 619, 10, 29, "Input",ExpressionUUID->"c247a9ec-dcbc-4217-b122-ece959188d24"],
+Cell[CellGroupData[{
+Cell[10796, 254, 924, 17, 26, "Print",ExpressionUUID->"cf22050e-c94a-43c3-96a5-8921d7afd6fa"],
+Cell[11723, 273, 1025, 16, 256, "Print",ExpressionUUID->"2e3f6e43-5055-4d20-ac98-b5a10325d809"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[12809, 296, 471, 7, 52, "Section",ExpressionUUID->"697c6a13-9807-41a4-8f07-e4554efeec38"],
+Cell[CellGroupData[{
+Cell[13305, 307, 619, 10, 29, "Input",ExpressionUUID->"719410d5-9008-4593-b3d2-344e9da4816d"],
+Cell[CellGroupData[{
+Cell[13949, 321, 993, 17, 26, "Print",ExpressionUUID->"3ba12742-8508-4ec1-a16a-d019f65b645f"],
+Cell[14945, 340, 1065, 16, 295, "Print",ExpressionUUID->"bf4c13fc-1290-41e8-8d61-d6400020a32f"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+

@@ -10,16 +10,65 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     58884,       1239]
-NotebookOptionsPosition[     57108,       1202]
-NotebookOutlinePosition[     57954,       1226]
-CellTagsIndexPosition[     57911,       1223]
+NotebookDataLength[     61395,       1294]
+NotebookOptionsPosition[     59278,       1251]
+NotebookOutlinePosition[     60125,       1275]
+CellTagsIndexPosition[     60082,       1272]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 
 Cell[CellGroupData[{
+Cell["Step101_MaterialModel-linearElastic - LinearElasticity", "Subsection",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ CellChangeTimes->{{3.8775215023835278`*^9, 3.877521541791609*^9}, {
+   3.877568490736122*^9, 3.877568527360239*^9}, {3.8775685590973597`*^9, 
+   3.877568561180788*^9}, {3.87756875515256*^9, 3.8775687937841682`*^9}, {
+   3.87756908660931*^9, 3.8775690900647097`*^9}, {3.877570157820827*^9, 
+   3.8775701670097637`*^9}, {3.877570223084271*^9, 3.877570225884531*^9}, 
+   3.8776602511357193`*^9, {3.877660488375909*^9, 3.877660515759467*^9}, {
+   3.877662360287733*^9, 3.877662363465866*^9}, {3.8776655076666403`*^9, 
+   3.8776655078309402`*^9}, {3.90134523652666*^9, 3.9013452806066837`*^9}, {
+   3.9013455674470987`*^9, 3.9013457548633413`*^9}, {3.90135032881489*^9, 
+   3.901350332862248*^9}, {3.9315980632127047`*^9, 3.931598102404028*^9}, 
+   3.931598136001165*^9},ExpressionUUID->"f9299cf0-f2f0-4543-a424-\
+0cdfff049f23"],
+
+Cell["\<\
+content:
+- linear elastic material model
+- input is deformation gradient as 3x3 matrix
+- output is stress as 6x1 vector and stress-strain tangent
+- tensor/vector
+- input/output
+- SMSFreeze
+- Symmetric
+- SMSInitialize
+- SMSModule
+- SMSReal
+- SMSD
+- SMSExport
+- SMSPrintMessage
+- SMSWrite\
+\>", "Abstract",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ CellChangeTimes->{{3.8775215023835278`*^9, 3.877521541791609*^9}, {
+   3.877568490736122*^9, 3.877568527360239*^9}, {3.8775685590973597`*^9, 
+   3.877568561180788*^9}, {3.87756875515256*^9, 3.8775687937841682`*^9}, {
+   3.87756908660931*^9, 3.8775690900647097`*^9}, {3.877570157820827*^9, 
+   3.8775701670097637`*^9}, {3.877570223084271*^9, 3.877570225884531*^9}, 
+   3.8776602511357193`*^9, {3.877660488375909*^9, 3.877660515759467*^9}, {
+   3.877662360287733*^9, 3.877662363465866*^9}, {3.8776655076666403`*^9, 
+   3.8776655078309402`*^9}, {3.90134523652666*^9, 3.9013452806066837`*^9}, {
+   3.9013455674470987`*^9, 3.9013457548633413`*^9}, {3.90135032881489*^9, 
+   3.901350332862248*^9}, {3.9315980632127047`*^9, 
+   3.931598238544724*^9}},ExpressionUUID->"709d6a4c-7401-4786-8a46-\
+b923a9c559a3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{
   RowBox[{"(*", " ", "Initialisation", " ", "*)"}], "\[IndentingNewLine]", 
@@ -96,8 +145,9 @@ Cell[BoxData[
    3.877662360287733*^9, 3.877662363465866*^9}, {3.8776655076666403`*^9, 
    3.8776655078309402`*^9}, {3.90134523652666*^9, 3.9013452806066837`*^9}, {
    3.9013455674470987`*^9, 3.9013457548633413`*^9}, {3.90135032881489*^9, 
-   3.901350332862248*^9}},
- CellLabel->"In[73]:=",ExpressionUUID->"f9299cf0-f2f0-4543-a424-0cdfff049f23"],
+   3.901350332862248*^9}, 
+   3.9315980632127047`*^9},ExpressionUUID->"9f577e61-6322-46b2-b391-\
+97a9ab8254b9"],
 
 Cell[BoxData[
  TemplateBox[{
@@ -222,7 +272,7 @@ Cell[BoxData[
      RowBox[{"NAME", ",", 
       RowBox[{"\"\<Language\>\"", "\[Rule]", " ", "\"\<Matlab\>\""}], ",", 
       RowBox[{"\"\<Mode\>\"", "\[Rule]", " ", "\"\<Optimal\>\""}]}], "]"}], 
-    ";"}], " ", "\[IndentingNewLine]", 
+    ";"}], " ", "\n", 
    RowBox[{"(*", " ", 
     RowBox[{
      RowBox[{"Start", " ", "a", " ", "module"}], ",", " ", 
@@ -232,7 +282,7 @@ Cell[BoxData[
      RowBox[{
      "with", " ", "name", " ", "\"\<NAME\>\"", " ", "and", " ", "the", " ", 
       "specified", " ", "input", " ", "and", " ", "output", " ", 
-      "arguments"}]}], " ", "*)"}], " ", "\n", 
+      "arguments"}]}], " ", "*)"}], " ", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"SMSModule", "[", 
      RowBox[{"NAME", ",", 
@@ -252,13 +302,12 @@ Cell[BoxData[
       RowBox[{"\"\<Output\>\"", " ", "\[Rule]", " ", 
        RowBox[{"{", " ", 
         RowBox[{"CauchyStressVEC$$", ",", "Tangent$$"}], " ", "}"}]}]}], 
-     "\[IndentingNewLine]", "\t       ", "]"}], ";"}], "\[IndentingNewLine]", 
-   
+     "\[IndentingNewLine]", "\t       ", "]"}], ";"}], "\n", 
    RowBox[{"(*", " ", 
     RowBox[{
     "Input", " ", "declaration", " ", "by", " ", "copying", " ", "AceGen", 
      " ", "variables", " ", "to", " ", "Mathematica", " ", "variables"}], " ",
-     "*)"}], "\n", 
+     "*)"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"deformationGradient", " ", "\[DoubleRightTee]", " ", 
      RowBox[{"SMSReal", "[", " ", 
@@ -1200,9 +1249,9 @@ In[94]:=",ExpressionUUID->"7aed7504-db3b-4e42-9298-46af56259032"]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1227.8709677419354`, 876.3870967741935},
-WindowMargins->{{
-  Automatic, -1408.258064516129}, {-21.130434782608745`, Automatic}},
+WindowSize->{1227.8709677419354`, 867.0967741935483},
+WindowMargins->{{Automatic, -1409.0322580645163`}, {
+  22.695652173913004`, Automatic}},
 TaggingRules->Association["TryRealOnly" -> False],
 InputAutoReplacements->{
  "ld" -> "\[DoubleRightTee]", "ls" -> "\[RightTee]", "rd" -> 
@@ -1226,19 +1275,25 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 3814, 77, 227, "Input",ExpressionUUID->"f9299cf0-f2f0-4543-a424-0cdfff049f23"],
-Cell[4397, 101, 1747, 32, 38, "Output",ExpressionUUID->"f01b16a9-56fa-4302-807f-a6cfca576817"]
+Cell[580, 22, 956, 13, 49, "Subsection",ExpressionUUID->"f9299cf0-f2f0-4543-a424-0cdfff049f23",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.}],
+Cell[1539, 37, 1172, 29, 345, "Abstract",ExpressionUUID->"709d6a4c-7401-4786-8a46-b923a9c559a3",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.}]
 }, Open  ]],
-Cell[6159, 136, 12360, 229, 454, "Input",ExpressionUUID->"8844cf92-f4b2-4d5e-bb00-3725bcd312d2"],
-Cell[18522, 367, 10753, 186, 275, "Input",ExpressionUUID->"e1f98168-1337-432d-a8b3-879858eed708"],
-Cell[29278, 555, 7724, 141, 241, "Input",ExpressionUUID->"8ce01ad9-8da3-4fc0-94cd-e61692f2b9db"],
-Cell[37005, 698, 8449, 163, 183, "Input",ExpressionUUID->"26eb14d6-dd7e-47ca-9ea0-82a5a9038e1e"],
 Cell[CellGroupData[{
-Cell[45479, 865, 3146, 63, 279, "Input",ExpressionUUID->"b95ec78e-fba0-4275-bf04-847ea02ccf1b"],
-Cell[48628, 930, 960, 21, 38, "Output",ExpressionUUID->"27cc2f44-ebec-47b4-a57d-40a63d5c463c"],
+Cell[2748, 71, 3820, 78, 227, "Input",ExpressionUUID->"9f577e61-6322-46b2-b391-97a9ab8254b9"],
+Cell[6571, 151, 1747, 32, 38, "Output",ExpressionUUID->"f01b16a9-56fa-4302-807f-a6cfca576817"]
+}, Open  ]],
+Cell[8333, 186, 12356, 228, 454, "Input",ExpressionUUID->"8844cf92-f4b2-4d5e-bb00-3725bcd312d2"],
+Cell[20692, 416, 10753, 186, 275, "Input",ExpressionUUID->"e1f98168-1337-432d-a8b3-879858eed708"],
+Cell[31448, 604, 7724, 141, 241, "Input",ExpressionUUID->"8ce01ad9-8da3-4fc0-94cd-e61692f2b9db"],
+Cell[39175, 747, 8449, 163, 183, "Input",ExpressionUUID->"26eb14d6-dd7e-47ca-9ea0-82a5a9038e1e"],
 Cell[CellGroupData[{
-Cell[49613, 955, 2962, 72, 74, "Print",ExpressionUUID->"b02ad887-7be9-42ab-abc7-50609a936a46"],
-Cell[52578, 1029, 4502, 169, 2454, "Print",ExpressionUUID->"7aed7504-db3b-4e42-9298-46af56259032"]
+Cell[47649, 914, 3146, 63, 279, "Input",ExpressionUUID->"b95ec78e-fba0-4275-bf04-847ea02ccf1b"],
+Cell[50798, 979, 960, 21, 38, "Output",ExpressionUUID->"27cc2f44-ebec-47b4-a57d-40a63d5c463c"],
+Cell[CellGroupData[{
+Cell[51783, 1004, 2962, 72, 74, "Print",ExpressionUUID->"b02ad887-7be9-42ab-abc7-50609a936a46"],
+Cell[54748, 1078, 4502, 169, 2454, "Print",ExpressionUUID->"7aed7504-db3b-4e42-9298-46af56259032"]
 }, Open  ]]
 }, Open  ]]
 }
