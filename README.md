@@ -2,12 +2,12 @@
 Some basic examples to get started with Mathematica+AceGen to build functions, material models, element formulations for Matlab/Fortran/C++
 
 ## AceGen
-<img src="https://github.com/jfriedlein/AceGen-GettingStarted/Flying%20with%20AceGen.png" width=75% height=75%>
+<img src="https://github.com/jfriedlein/AceGen-GettingStarted/blob/main/Flying%20with%20AceGen.png" width=75% height=75%>
 
 ## How to use this
 Download the entire repository and unpack it somewhere on your hard drive.
 Make sure you have Mathematica and AceGen installed. Check this by opening "Step001_Basics" and evaluating the notebook "AceGen-InCalcOut.nb". If AceGen starts and no errors occur in Mathematica or AceGen, everything should be up and running.
-Note that AceGen is a package for Mathematica. So before using AceGen, you should dig into Mathematica (see for instance [Using Mathematica](Using Mathematica)).
+Note that AceGen is a package for Mathematica. So before using AceGen, you should dig into Mathematica (see for instance [Using Mathematica](using-mathematica)).
 Start for instance by looking at the table of contents "TOC.nb", which summarises what the steps do and links to them.
 Start reading the comments and commands in "Step001_Basics", understand what is going on and why, start playing with the code, change values/syntax/commands, etc. Continue with the steps one-by-one or pick interesting topics.
 
