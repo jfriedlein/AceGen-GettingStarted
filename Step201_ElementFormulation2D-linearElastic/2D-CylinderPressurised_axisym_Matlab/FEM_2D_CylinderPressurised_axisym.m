@@ -1580,6 +1580,10 @@ function r = globaltraction(ncoord,ndof,nnodes,nelem,ndload,coords,nelnodes,elid
           lmndof(i,a) = dofs(ndof*(connect(nodelist(a),dloads(1,load))-1)+i);
         end
       end
+      
+      % Compute average radius (x-coord) of nodes of this face to compute ring surface for axisymmetric
+       rm = (lmncoord(1,1) + lmncoord(1,2))/2;
+      
 %
 %    Compute the element load vector
 %
@@ -1594,7 +1598,7 @@ function r = globaltraction(ncoord,ndof,nnodes,nelem,ndload,coords,nelnodes,elid
      for a = 1:nfnodes
        for i = 1:ndof
          rw = (connect(nodelist(a),dloads(1,load))-1)*ndof+i;
-         r(rw) = r(rw) + rel((a-1)*ndof+i);
+         r(rw) = r(rw) + rel((a-1)*ndof+i) * rm *2*pi(); % depending on element formulation use "*2*pi()" or not;
        end
      end
 
