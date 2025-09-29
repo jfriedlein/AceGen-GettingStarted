@@ -23,8 +23,10 @@ todo add dependency graph of steps, for instance as for deal.II
 - "Step1xx": usage for material modelling
     - "Step10x": elasticity
     - "Step11x": plasticity
+    - "Step12x": plasticity-damage
     - optional: thermal, coupled, ...
 - "Step2xx": usage for element formulations
+	- "Step21x": a bit more advanced (e.g. locking free, F-bar approach, ...)
 
 ## Using Mathematica
 - 35 min video with basics: https://www.youtube.com/watch?app=desktop&v=EXZQDpKu_mQ
